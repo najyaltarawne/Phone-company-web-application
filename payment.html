@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Make Payment</title>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Company Logo" class="logo">
+    <h1>Make a Payment</h1>
+    <h3>Amount Due:</h3>
+
+    <!-- Account Balance Information -->
+    <div id="accountBalance">
+      <!-- This will be populated with the balance information -->
+      <p id="amountDue"> $<span id="owedBalance"></span></p>
+    </div>
+
+    <!-- Payment Form -->
+    <form id="paymentForm">
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" placeholder="Enter 16-digit card number" maxlength="19" pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}" required oninput="formatCardNumber(this)">
+
+      <label for="expiryDate">Expiration Date (MM/YY):</label>
+      <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" required>
+
+      <label for="cvc">CVC:</label>
+      <input type="text" id="cvc" placeholder="3-digit CVC" maxlength="3" pattern="\d{3}" required>
+
+      <label for="paymentAmount">Payment Amount:</label>
+      <input type="tel" id="paymentAmount" placeholder="Enter payment amount" min="1" required>
+
+
+      <button type="submit" id="submit">Submit Payment</button>
+    </form>
+
+    <div id="paymentResponse"></div>
+  </div>
+
+  <script src="paymentScript.js"></script>
+</body>
+</html>
